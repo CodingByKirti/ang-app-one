@@ -1,0 +1,26 @@
+<p>Data Binding Demo!</p>
+<h1>{{message}}</h1>
+
+<input type="text" [value]="fname">
+<input type="text" bind-value="lname">
+<button (click)="changeMessage()"> Click here</button>
+<hr>
+<hr>
+
+<h2>Add Product to Cart by clicking on it</h2>
+
+<button value="bottle" (click)="addProd($event)">Bottle </button><br />
+<button value="Bag" (click)="addProd($event)">Bag</button><br />
+<button value="Pouch" (click)="addProd($event)">Pouch</button><br />
+<button value="Box" (click)="addProd($event)">Box</button><br />
+
+{{prodInfo}}
+
+
+<hr>
+<hr>
+
+<input type="text" placeholder="type your one wish" #wish>
+<button (click)="getWish(wish)">Find</button> {{wishMsg}}
+
+<hr size="2">

@@ -1,0 +1,68 @@
+<p>directives-demo works!</p>
+
+
+
+<h2 *ngIf="uname=='Kirti'; else elseblock">
+    welcome {{uname}}
+
+</h2>
+<ng-template #elseblock>
+    Welcome user.. Plz register first
+</ng-template>
+<!-- // ngswitch is attribute directive, so we use property binding i.e. [] -->
+<!-- *ngSwitchCase *ngSwitchDefault are structural directives use * -->
+<div [ngSwitch]="favColor">
+    <div *ngSwitchCase="'red'">
+        your favourite color is {{favColor}}
+    </div>
+    <div *ngSwitchCase="'green'">
+        your favourite color is green
+    </div>
+    <div *ngSwitchDefault>
+        no color selected
+    </div>
+
+</div>
+
+<!-- ngFor -->
+
+<div *ngFor="let c of colors">
+    {{c}} <br>
+</div>
+<hr>
+<div *ngFor="let b of bio">
+    {{b.id}} {{b.name}} <br>
+</div>
+<hr>
+<div *ngFor="let b of bio; index as i">
+    {{i+1}} {{b.name}} <br>
+</div>
+<hr>
+<!-- true if its first elem otherwise false....
+true is last elem otherwise false  .. -->
+<div *ngFor="let b of bio; first as f; last as l">
+    {{f}} {{b.name}} {{l}} <br>
+</div>
+
+<hr>
+<h3>ng-class and ng-style</h3>
+<!-- ngclass directive allows to set the css class synamically for a DOM elem, 
+    use it when multiple classes are to be added -->
+
+<p class="box" [class.textcol]="!applyTxtCol">class-style!</p>
+<div [style.color]="appStyle">Applycing Style</div>
+<hr>
+<div [ngClass]=" 'class1 class2'">
+    Hello we are working with ngClass.. providing multiple classes individually
+</div>
+<hr>
+<h1 [ngClass]="customCssObject">
+    now combined css classes as object in ts file
+</h1>
+
+<h1 [ngStyle]="{'color':'red','border':'15px dotted blue'}">
+    why not ??
+</h1>
+<h1 [ngStyle]="customStyleObject">
+    why not ??
+</h1>
